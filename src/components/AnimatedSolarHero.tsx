@@ -24,7 +24,7 @@ export default function AnimatedSolarHero() {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <Image
-            src="/solar-installation-hero.png"
+            src="/solar.png"
             alt="Solar installation team mounting panels on a rooftop"
             fill
             className="relative z-0 object-cover"

@@ -1,40 +1,46 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
-  title: "Apex Solar Infra Pvt Ltd | Premier Solar Panel Installation & Energy Solutions",
+  title: {
+    default: "Apex Solar Infra Pvt. Ltd. | Intelligent Solar Solutions",
+    template: "%s | Apex Solar Infra",
+  },
   description:
-    "Apex Solar Infra Pvt Ltd provides professional solar panel installation, maintenance, and rooftop solar solutions for homes & businesses. Powering India with clean, sustainable energy.",
+    "Apex Solar Infra delivers high-performance solar installations for residential, commercial, and industrial projects across India. EPC services, O&M, and solar infrastructure development.",
   keywords: [
     "Solar Panel Installation",
-    "Best Solar Company India",
-    "Solar Rooftop Installation",
-    "Solar Panel Price",
+    "Commercial Solar",
+    "Industrial Solar",
+    "EPC Solar Services",
+    "Solar Company India",
     "Apex Solar Infra",
-    "Renewable Energy Solutions",
-    "Solar Subsidy India",
-    "Solar Installer Haryana",
-    "Solar Panel Installation Haryana",
+    "Renewable Energy",
+    "Rooftop Solar",
   ],
-  authors: [{ name: "Apex Solar Infra Pvt Ltd" }],
+  authors: [{ name: "Apex Solar Infra Pvt. Ltd." }],
   openGraph: {
-    title: "Apex Solar Infra Pvt Ltd | Leading Solar Installer",
-    description: "Expert solar panel installation and maintenance services. Powering homes and businesses with clean energy across India.",
+    title: "Apex Solar Infra Pvt. Ltd. | Intelligent Solar Solutions",
+    description:
+      "Delivering high-performance solar installations for residential, commercial, and industrial projects across India.",
     url: "https://apexsolarinfra.com",
-    siteName: "Apex Solar",
+    siteName: "Apex Solar Infra",
     images: [
       {
-        url: "/solar-installation-hero.png",
+        url: "/solar.png",
         width: 1200,
         height: 630,
-        alt: "Apex Solar Installation",
+        alt: "Apex Solar Infra — Intelligent Solar Solutions",
       },
     ],
     locale: "en_IN",
@@ -42,9 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Apex Solar Infra Pvt Ltd | Solar Energy Solutions",
-    description: "Professional solar panel installation services across India.",
-    images: ["/solar-installation-hero.png"],
+    images: ["/solar.png"],
   },
   icons: {
     icon: "/Logo_Tp.png",
@@ -60,57 +64,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased`} suppressHydrationWarning>
-      <head>
-        <meta name="geo.region" content="IN" />
-        <meta name="geo.placename" content="India" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Apex Solar Infra Pvt Ltd",
-              "image": "https://apexsolarinfra.com/Logo_Tp.png",
-              "@id": "https://apexsolarinfra.com",
-              "url": "https://apexsolarinfra.com",
-              "telephone": "+917988449943",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "India",
-                "addressLocality": "Multiple Locations",
-                "addressRegion": "India",
-                "postalCode": "",
-                "addressCountry": "IN"
-              },
-              "areaServed": [
-                {
-                  "@type": "State",
-                  "name": "Haryana"
-                },
-                {
-                  "@type": "Country",
-                  "name": "India"
-                }
-              ],
-              "description": "Expert solar panel installation, rooftop solar solutions, and maintenance services for homes and businesses across India.",
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday"
-                ],
-                "opens": "09:00",
-                "closes": "18:00"
-              }
-            })
-          }}
-        />
-      </head>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <SmoothScrollProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
