@@ -47,8 +47,10 @@ export const metadata: Metadata = {
     images: ["/solar-installation-hero.png"],
   },
   icons: {
-    icon: "/Logo_Tp.png",
-    apple: "/Logo_Tp.png",
+    icon: [
+      { url: "/solar.png", sizes: "any", type: "image/png" },
+    ],
+    apple: "/solar.png",
   },
   metadataBase: new URL("https://apexsolarinfra.com"),
 };
