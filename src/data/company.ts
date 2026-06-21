@@ -6,7 +6,7 @@ export const company = {
   description:
     "Delivering high-performance solar installations for residential, commercial, and industrial projects across India.",
   phone: "+91 79884 49943",
-  email: "info@apexsolarinfra.com",
+  email: "info.apexsolarinfra@gmail.com",
   address: "Apex Solar Infra Pvt Ltd, Garhi Bolni Road, Rewari, Haryana 123401",
   whatsapp: "917988449943",
   social: {

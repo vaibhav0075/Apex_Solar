@@ -14,11 +14,48 @@ import { company } from "@/data/company";
 import { images } from "@/data/images";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    projectType: "Residential Solar",
+    message: "",
+  });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        setError(data.message || "Failed to send email");
+      }
+    } catch (err) {
+      setError("An unexpected error occurred");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -60,20 +97,45 @@ export default function ContactPage() {
                         <div className="grid gap-5 sm:grid-cols-2">
                           <div>
                             <label className="mb-2 block text-sm font-medium">Full Name</label>
-                            <Input required placeholder="Your name" />
+                            <Input
+                              required
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              placeholder="Your name"
+                            />
                           </div>
                           <div>
                             <label className="mb-2 block text-sm font-medium">Phone Number</label>
-                            <Input required type="tel" placeholder="+91 XXXXX XXXXX" />
+                            <Input
+                              required
+                              name="phone"
+                              type="tel"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              placeholder="+91 XXXXX XXXXX"
+                            />
                           </div>
                         </div>
                         <div>
                           <label className="mb-2 block text-sm font-medium">Email Address</label>
-                          <Input required type="email" placeholder="you@example.com" />
+                          <Input
+                            required
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            placeholder="you@example.com"
+                          />
                         </div>
                         <div>
                           <label className="mb-2 block text-sm font-medium">Project Type</label>
-                          <select className="flex h-12 w-full rounded-xl border border-slate-200 bg-white/80 px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                          <select
+                            name="projectType"
+                            value={formData.projectType}
+                            onChange={handleChange}
+                            className="flex h-12 w-full rounded-xl border border-slate-200 bg-white/80 px-4 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                          >
                             <option>Residential Solar</option>
                             <option>Commercial Solar</option>
                             <option>Industrial Solar</option>
@@ -84,12 +146,30 @@ export default function ContactPage() {
                         </div>
                         <div>
                           <label className="mb-2 block text-sm font-medium">Message</label>
-                          <Textarea required placeholder="Tell us about your project..." rows={4} />
+                          <Textarea
+                            required
+                            name="message"
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Tell us about your project..."
+                            rows={4}
+                          />
                         </div>
+                        {error && (
+                          <div className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">
+                            {error}
+                          </div>
+                        )}
                         <MagneticButton>
-                          <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
-                            Schedule a Free Consultation
-                            <Send className="h-4 w-4" />
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            size="lg"
+                            className="w-full sm:w-auto"
+                            disabled={loading}
+                          >
+                            {loading ? "Sending..." : "Send"}
+                            {!loading && <Send className="h-4 w-4" />}
                           </Button>
                         </MagneticButton>
                       </form>
