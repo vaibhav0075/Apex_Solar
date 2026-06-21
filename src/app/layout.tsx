@@ -73,7 +73,7 @@ export default function RootLayout({
       <body className="min-h-full" suppressHydrationWarning>
         <SmoothScrollProvider>
           <Navbar />
-          <main>{children}</main>
+          <main className="pt-24 sm:pt-28 md:pt-32">{children}</main>
           <Footer />
         </SmoothScrollProvider>
         <Analytics />
