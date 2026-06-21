@@ -30,10 +30,8 @@ export default function Navbar() {
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "glass shadow-lg shadow-slate-200/50 py-3"
-            : "bg-transparent py-4 min-[1100px]:py-5"
+          "navbar-glass fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          scrolled ? "shadow-lg shadow-accent-deep/30 py-3" : "py-4 min-[1100px]:py-5"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -51,8 +49,8 @@ export default function Navbar() {
                   className={cn(
                     "relative shrink-0 whitespace-nowrap rounded-lg px-2 py-2 text-base font-medium transition-colors min-[1100px]:px-2.5 xl:px-3",
                     pathname === link.href
-                      ? "text-accent-deep"
-                      : "text-slate-700 hover:text-accent-deep"
+                      ? "text-primary"
+                      : "text-white/90 hover:text-primary"
                   )}
                 >
                   {link.label}
@@ -81,7 +79,7 @@ export default function Navbar() {
 
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white/80 min-[1100px]:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-white/10 text-white min-[1100px]:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Apex Solar Infra",
     images: [
       {
-        url: "/solar.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Apex Solar Infra — Intelligent Solar Solutions",
@@ -48,13 +49,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/solar.png"],
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
-      { url: "/solar.png", sizes: "any", type: "image/png" },
+      { url: "/icon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/solar.png",
+    apple: "/apple-icon.png",
+    shortcut: "/icon-48.png",
   },
   metadataBase: new URL("https://apexsolarinfra.com"),
 };
@@ -66,12 +70,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full">
+      <body className="min-h-full" suppressHydrationWarning>
         <SmoothScrollProvider>
           <Navbar />
           <main>{children}</main>
           <Footer />
         </SmoothScrollProvider>
+        <Analytics />
+        <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2025/11/24/09/20251124095250-GVJQIELH.js" defer></script>
       </body>
     </html>
   );

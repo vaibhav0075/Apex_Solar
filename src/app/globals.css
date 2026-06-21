@@ -125,6 +125,13 @@ body {
   -webkit-backdrop-filter: blur(20px);
 }
 
+.navbar-glass {
+  background: rgba(10, 77, 155, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .glow-primary {
   box-shadow: 0 0 30px rgba(255, 180, 0, 0.35);
 }
@@ -154,7 +161,7 @@ body {
 }
 
 .section-padding {
-  @apply px-6 py-20 md:px-10 md:py-28 lg:px-16;
+  @apply px-6 pt-12 pb-16 md:px-10 md:pt-16 md:pb-20 lg:px-16;
 }
 
 .container-wide {

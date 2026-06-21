@@ -20,7 +20,7 @@ export default function SectionHeader({
   return (
     <FadeInView
       className={cn(
-        "mb-14 max-w-3xl",
+        "mb-10 max-w-3xl",
         align === "center" && "mx-auto text-center",
         className
       )}

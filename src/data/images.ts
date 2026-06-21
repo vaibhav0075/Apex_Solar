@@ -9,4 +9,6 @@ export const images = {
   industrialAlt: "/Industial%202.png",
   school: "/School.png",
   logo: "/Logo_Tp.png",
+  logoIcon: "/Logo_only.png",
+  ogImage: "/og-image.png",
 } as const;
