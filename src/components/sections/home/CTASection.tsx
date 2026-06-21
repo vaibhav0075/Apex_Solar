@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import MagneticButton from "@/components/animations/MagneticButton";
 import { Button } from "@/components/ui/button";
 import { images } from "@/data/images";
+import { company } from "@/data/company";
 
 export default function CTASection() {
   return (
@@ -61,10 +61,14 @@ export default function CTASection() {
           >
             <MagneticButton>
               <Button asChild variant="primary" size="xl" className="animate-glow-pulse">
-                <Link href="/contact">
+                <a
+                  href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20a%20free%20solar%20consultation!`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Get Free Consultation
                   <ArrowRight className="h-5 w-5" />
-                </Link>
+                </a>
               </Button>
             </MagneticButton>
           </motion.div>

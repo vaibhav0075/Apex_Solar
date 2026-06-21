@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook, faLinkedin, faTwitter, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { company, navLinks } from "@/data/company";
 import { services } from "@/data/services";
 import Logo from "@/components/shared/Logo";
@@ -80,6 +82,48 @@ export default function Footer() {
                 {company.address}
               </li>
             </ul>
+            <div className="mt-6 flex items-center gap-4">
+              <a
+                href={company.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/75 transition-all hover:bg-primary hover:text-accent-deep"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
+              </a>
+              <a
+                href={company.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/75 transition-all hover:bg-primary hover:text-accent-deep"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+              </a>
+              <a
+                href={company.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/75 transition-all hover:bg-primary hover:text-accent-deep"
+              >
+                <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
+              </a>
+              <a
+                href={company.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/75 transition-all hover:bg-primary hover:text-accent-deep"
+              >
+                <FontAwesomeIcon icon={faTwitter} className="h-5 w-5" />
+              </a>
+              <a
+                href={`https://wa.me/${company.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/75 transition-all hover:bg-primary hover:text-accent-deep"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5" />
+              </a>
+            </div>
           </div>
         </div>
 

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageHero from "@/components/shared/PageHero";
 import FadeInView from "@/components/animations/FadeInView";
@@ -9,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import CTASection from "@/components/sections/home/CTASection";
 import { services } from "@/data/services";
 import { images } from "@/data/images";
+import { company } from "@/data/company";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -90,10 +90,14 @@ export default function ServicesPage() {
 
                   <div className="mt-8">
                     <Button asChild variant="primary">
-                      <Link href="/contact">
+                      <a
+                        href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20${encodeURIComponent(service.title)}!`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Get a Quote
                         <ArrowRight className="h-4 w-4" />
-                      </Link>
+                      </a>
                     </Button>
                   </div>
                 </FadeInView>

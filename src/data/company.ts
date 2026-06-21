@@ -1,6 +1,7 @@
 export const company = {
   name: "Apex Solar Infra Pvt. Ltd.",
   shortName: "Apex Solar",
+  established: 2026,
   tagline: "Powering Tomorrow With Intelligent Solar Solutions",
   description:
     "Delivering high-performance solar installations for residential, commercial, and industrial projects across India.",
@@ -11,7 +12,8 @@ export const company = {
   social: {
     linkedin: "https://linkedin.com",
     twitter: "https://twitter.com",
-    instagram: "https://instagram.com",
+    instagram: "https://www.instagram.com/apexsolarinfra",
+    facebook: "https://www.facebook.com/profile.php?id=61590062375300",
   },
 };
 
@@ -26,7 +28,6 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/projects", label: "Projects" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/calculator", label: "Solar Calculator" },
   { href: "/contact", label: "Contact" },

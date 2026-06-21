@@ -6,7 +6,7 @@ import SectionHeader from "@/components/shared/SectionHeader";
 import FadeInView from "@/components/animations/FadeInView";
 import StaggerChildren, { StaggerItem } from "@/components/animations/StaggerChildren";
 import CTASection from "@/components/sections/home/CTASection";
-import { coreValues, certifications } from "@/data/company";
+import { coreValues, certifications, company } from "@/data/company";
 import { images } from "@/data/images";
 
 export const metadata: Metadata = {
@@ -16,12 +16,9 @@ export const metadata: Metadata = {
 };
 
 const timeline = [
-  { year: "2015", title: "Founded", description: "Apex Solar Infra established with a vision to democratize solar energy in India." },
-  { year: "2017", title: "100 Projects", description: "Crossed 100 successful installations across residential and commercial sectors." },
-  { year: "2019", title: "Industrial Expansion", description: "Launched industrial solar division with first MW-scale project." },
-  { year: "2021", title: "EPC Services", description: "Expanded to full EPC capabilities serving pan-India clients." },
-  { year: "2023", title: "100 MW Milestone", description: "Achieved 100 MW cumulative installed capacity." },
-  { year: "2025", title: "125+ MW", description: "Continuing growth with 850+ projects and industry-leading O&M services." },
+  { year: company.established, title: "Founded", description: "Apex Solar Infra established with a vision to democratize solar energy in India." },
+  { year: company.established + 1, title: "Growing Strong", description: "Expanding our team and completing initial successful installations." },
+  { year: company.established + 2, title: "Expanding Reach", description: "Serving more clients across different regions of India." },
 ];
 
 const whyChoose = [

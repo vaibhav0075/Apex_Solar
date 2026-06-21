@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
 import EnergyParticles from "@/components/three/EnergyParticles";
@@ -100,14 +100,6 @@ export default function HeroSection() {
                 <Link href="/services">
                   Explore Services
                   <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
-            </MagneticButton>
-            <MagneticButton>
-              <Button asChild variant="outline" size="lg">
-                <Link href="/projects">
-                  <Play className="h-4 w-4" />
-                  View Projects
                 </Link>
               </Button>
             </MagneticButton>

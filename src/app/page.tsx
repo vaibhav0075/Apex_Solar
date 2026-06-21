@@ -2,7 +2,6 @@ import HeroSection from "@/components/sections/home/HeroSection";
 import CompanyOverview from "@/components/sections/home/CompanyOverview";
 import ServicesSection from "@/components/sections/home/ServicesSection";
 import IndustriesSection from "@/components/sections/home/IndustriesSection";
-import ProjectsSection from "@/components/sections/home/ProjectsSection";
 import ProcessTimeline from "@/components/sections/home/ProcessTimeline";
 import WhySolarSection from "@/components/sections/home/WhySolarSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
@@ -15,7 +14,6 @@ export default function Home() {
       <CompanyOverview />
       <ServicesSection />
       <IndustriesSection />
-      <ProjectsSection />
       <ProcessTimeline />
       <WhySolarSection />
       <TestimonialsSection />

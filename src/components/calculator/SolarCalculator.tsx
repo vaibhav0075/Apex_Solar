@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
   Calculator,
   Zap,
@@ -25,6 +24,7 @@ import {
   formatINR,
   type PropertyTypeId,
 } from "@/lib/calculator";
+import { company } from "@/data/company";
 
 export default function SolarCalculator() {
   const [bill, setBill] = useState(5000);
@@ -135,10 +135,14 @@ export default function SolarCalculator() {
           </div>
 
           <Button asChild variant="primary" size="lg" className="mt-8 w-full">
-            <Link href="/contact">
+            <a
+              href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20a%20detailed%20solar%20quote%20based%20on%20the%20calculator%20results!`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Get Detailed Quote
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </a>
           </Button>
         </CardContent>
       </Card>

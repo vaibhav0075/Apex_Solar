@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { navLinks } from "@/data/company";
+import { navLinks, company } from "@/data/company";
 import { Button } from "@/components/ui/button";
 import MagneticButton from "@/components/animations/MagneticButton";
 import Logo from "@/components/shared/Logo";
@@ -69,10 +69,14 @@ export default function Navbar() {
             <div className="hidden min-[1100px]:block">
               <MagneticButton>
                 <Button asChild variant="primary" size="default" className="whitespace-nowrap">
-                  <Link href="/contact">
+                  <a
+                    href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20solar%20solutions!`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Get Free Quote
                     <ArrowRight className="h-5 w-5" />
-                  </Link>
+                  </a>
                 </Button>
               </MagneticButton>
             </div>
@@ -130,7 +134,13 @@ export default function Navbar() {
                 className="mt-6"
               >
                 <Button asChild variant="primary" size="lg">
-                  <Link href="/contact">Get Free Quote</Link>
+                  <a
+                    href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20solar%20solutions!`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Free Quote
+                  </a>
                 </Button>
               </motion.div>
             </motion.div>
