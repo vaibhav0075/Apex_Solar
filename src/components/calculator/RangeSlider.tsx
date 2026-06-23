@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface RangeSliderProps {
@@ -25,16 +26,52 @@ export default function RangeSlider({
   onChange,
   className,
 }: RangeSliderProps) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [tempValue, setTempValue] = useState(value.toString());
   const percent = ((value - min) / (max - min)) * 100;
   const display = formatValue ? formatValue(value) : `${value.toLocaleString("en-IN")}${unit}`;
+
+  const handleBlur = () => {
+    let parsed = Number(tempValue.replace(/[^0-9]/g, ""));
+    if (isNaN(parsed)) parsed = value;
+    if (parsed < min) parsed = min;
+    if (parsed > max) parsed = max;
+    onChange(parsed);
+    setIsEditing(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleBlur();
+    }
+  };
 
   return (
     <div className={cn("space-y-3", className)}>
       <div className="flex items-end justify-between gap-4">
         <label className="text-base font-medium text-foreground">{label}</label>
-        <span className="rounded-lg bg-primary/15 px-3 py-1 text-lg font-bold text-accent-deep tabular-nums">
-          {display}
-        </span>
+        {isEditing ? (
+          <input
+            type="text"
+            value={tempValue}
+            onChange={(e) => setTempValue(e.target.value)}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyDown}
+            autoFocus
+            className="w-32 rounded-lg bg-primary/15 px-3 py-1 text-lg font-bold text-accent-deep tabular-nums outline-none ring-2 ring-primary/50"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              setTempValue(formatValue ? value.toString() : value.toLocaleString("en-IN"));
+              setIsEditing(true);
+            }}
+            className="rounded-lg bg-primary/15 px-3 py-1 text-lg font-bold text-accent-deep tabular-nums hover:bg-primary/20 transition-colors"
+          >
+            {display}
+          </button>
+        )}
       </div>
 
       <div className="relative">

@@ -24,7 +24,7 @@ export default function CompanyOverview() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 glass rounded-2xl p-5 shadow-xl">
-                <p className="text-sm font-semibold text-accent-deep">Since 2015</p>
+                <p className="text-sm font-semibold text-accent-deep">Since 2026</p>
                 <p className="text-xs text-slate-500">Engineering Excellence</p>
               </div>
             </div>
@@ -40,7 +40,7 @@ export default function CompanyOverview() {
             />
             <FadeInView delay={0.2}>
               <p className="mb-4 text-slate-600 leading-relaxed">
-                With a team of certified engineers and over a decade of experience, we combine
+                With a team of certified engineers and a commitment to excellence, we combine
                 cutting-edge technology with rigorous project management to deliver solar
                 installations that exceed performance expectations.
               </p>

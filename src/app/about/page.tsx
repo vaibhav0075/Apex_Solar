@@ -35,7 +35,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About Apex Solar Infra"
-        description="Engineering excellence, sustainability, and innovation — powering India's transition to clean energy since 2015."
+        description="Engineering excellence, sustainability, and innovation — powering India's transition to clean energy since 2026."
         image={images.hero}
       />
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
           <FadeInView direction="left">
             <SectionHeader
               badge="Our Story"
-              title="A Decade of Solar Excellence"
+              title="Powering India's Solar Future"
               description="What began as a small team of passionate engineers has grown into one of India's most trusted solar energy companies."
               align="left"
             />
