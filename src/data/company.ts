@@ -28,7 +28,6 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/case-studies", label: "Case Studies" },
   { href: "/calculator", label: "Solar Calculator" },
   { href: "/contact", label: "Contact" },
 ];

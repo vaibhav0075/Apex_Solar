@@ -12,6 +12,7 @@ import FadeInView from "@/components/animations/FadeInView";
 import MagneticButton from "@/components/animations/MagneticButton";
 import { company } from "@/data/company";
 import { images } from "@/data/images";
+import { trackContact, trackLead } from "@/lib/meta-pixel";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -45,6 +46,7 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
+        trackLead("contact_form");
         setSubmitted(true);
       } else {
         const data = await response.json();
@@ -224,6 +226,7 @@ export default function ContactPage() {
                         href={`https://wa.me/${company.whatsapp}?text=Hi, I'm interested in solar solutions.`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() => trackContact("contact_page_whatsapp")}
                       >
                         <MessageCircle className="h-4 w-4" />
                         Chat on WhatsApp

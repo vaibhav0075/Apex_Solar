@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Calculator,
@@ -25,6 +25,7 @@ import {
   type PropertyTypeId,
 } from "@/lib/calculator";
 import { company } from "@/data/company";
+import { trackContact, trackViewContent } from "@/lib/meta-pixel";
 
 export default function SolarCalculator() {
   const [bill, setBill] = useState(5000);
@@ -35,6 +36,10 @@ export default function SolarCalculator() {
     () => calculateSolar({ bill, roofArea, propertyType }),
     [bill, roofArea, propertyType]
   );
+
+  useEffect(() => {
+    trackViewContent("Solar Calculator", "calculator");
+  }, []);
 
   const statCards = [
     {
@@ -139,6 +144,7 @@ export default function SolarCalculator() {
               href={`https://wa.me/${company.whatsapp}?text=Hi,%20I'm%20interested%20in%20a%20detailed%20solar%20quote%20based%20on%20the%20calculator%20results!`}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackContact("calculator_whatsapp")}
             >
               Get Detailed Quote
               <ArrowRight className="h-4 w-4" />

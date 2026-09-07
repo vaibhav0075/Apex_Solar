@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import MetaPixel from "@/components/analytics/MetaPixel";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -71,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full" suppressHydrationWarning>
+        <MetaPixel />
         <SmoothScrollProvider>
           <Navbar />
           <main className="pt-16 sm:pt-20 md:pt-24">{children}</main>
